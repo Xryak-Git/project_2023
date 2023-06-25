@@ -1,5 +1,5 @@
 """
-URL configuration for main project.
+URL configuration for belousov project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,18 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-from django.conf import settings
-from django.conf.urls.static import static
-
-from main import views
+from . import views
 
 urlpatterns = [
+    path('', views.shop, name='shop'),
+    path('add-product', views.add_product, name='add-product'),
+    path('<int:pk>/update', views.UpdateProduct.as_view(), name='update-product'),
+    path('<int:pk>', views.DetailProduct.as_view(), name='detail-product'),
+    path('<int:pk>/delete', views.DeleteProduct.as_view(), name='delete-product'),
 
-    path('', views.index, name='index'),
-    path('admin/', admin.site.urls),
-    path('shop/', include('shop.urls')),
 ]
-
-urlpatterns += static(settings.MEDIA_URL,
-                      document_root=settings.MEDIA_ROOT)

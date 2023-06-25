@@ -1,0 +1,61 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Shop
+{% endblock title %}
+
+{% block container %}
+
+    <a href="{% url 'add-product' %}"><button class="add_pr">Add product</button></a>
+
+		<main class="content">
+
+			<div class="title hellow">
+				<p>
+					Hello, buy it right now
+				</p>
+			</div>
+			<div class="tovar">
+
+				<ul class="products clearfix">
+
+                    {% for product in products %}
+
+                        <li class="product-wrapper">
+                            <!-- Карточка товара -->
+                            <div class="card">
+                              <!-- Верхняя часть -->
+                              <div class="card__top">
+                                <!-- Изображение-ссылка товара -->
+                                <a href="{% url 'detail-product' product.id %}" class="card__image">
+                                  <img
+                                    src="{{ product.image.url }}"
+                                    alt=""
+                                  />
+                                </a>
+                              </div>
+                              <!-- Нижняя часть -->
+                              <div class="card__bottom">
+                                <!-- Цены на товар (с учетом скидки и без)-->
+                                <div class="card__prices">
+                                  <div class="card__price card__price--common">{{ product.price }}</div>
+                                </div>
+                                <!-- Ссылка-название товара -->
+                                <a href="#" class="card__title">
+                                  {{ product.title }}
+                                </a>
+                                <!-- Кнопка добавить в корзину -->
+                                <button class="card__add">В корзину</button>
+                              </div>
+                            </div>
+                        </li>
+
+                    {% endfor %}
+				</ul>
+
+
+			</div>
+
+		</main>
+{% endblock container %}
