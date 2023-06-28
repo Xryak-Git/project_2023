@@ -2,12 +2,22 @@
 {% load static %}
 
 {% block title %}
-    Home page
+    Registration
 {% endblock title %}
 
 {% block container %}
 
-    <div class="login">Логин</div>
-    <div class="password">Пароль</div>
+
+<form action="{% url 'register' %}" method="post">
+
+    {{ register_form }}
+    {% csrf_token %}
+    <button type="submit">Зарегистрироваться</button>
+    <h2>{{ attention }}</h2>
+
+
+
+
+</form>
 
 {% endblock container %}
