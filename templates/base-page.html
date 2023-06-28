@@ -16,6 +16,22 @@
 				<ul class="menu">
 					<li class="page"><a href="/" class="page_link">Main</a></li>
 					<li class="page"><a href="{% url 'shop' %}" class="page_link">Shop</a></li>
+                    <li>
+                        <div id="dd" class="wrapper-dropdown-2 ddinc">
+                        <ul class="dropdown">
+                            {% if user.is_authenticated %}
+                                {{ user.username }}
+                            {% else  %}
+                                Login/Registration
+                                <li><a href="{% url 'login' %}"><em></em>Login</a></li>
+                                <li><a href="{% url 'register' %}"><em></em>Registration</a></li>
+                            {% endif %}
+
+                            <li><a href="{% url 'logout' %}"><em></em>Logout</a></li>
+                        </ul>
+                        </div>
+                    </li>
+
 				</ul>
 			</nav>
 
@@ -36,5 +52,7 @@
 		-->
 
 	</div>
+
 </body>
 </html>
+

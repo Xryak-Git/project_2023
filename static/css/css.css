@@ -272,3 +272,15 @@ ul.products.clearfix {
     flex-wrap: wrap;
     width: 100%;
 }
+
+/* Drop down menu */
+
+.wrapper-dropdown-2 {
+    /* Размер и позиционирование */
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px 15px;
+
+}
+

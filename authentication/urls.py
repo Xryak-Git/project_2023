@@ -20,14 +20,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from main import views
+from authentication import views
 
 urlpatterns = [
 
-    path('', views.index, name='index'),
-    path('admin/', admin.site.urls),
-    path('shop/', include('shop.urls')),
-    path('auth/', include('authentication.urls')),
+    path('login', views.login_user, name='login'),
+    path('register', views.register, name='register'),
+    path('logout', views.logout_user, name='logout'),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
