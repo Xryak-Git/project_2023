@@ -8,12 +8,16 @@
 {% block container %}
 
 
-    <form action="{% url 'login' %}" method="post">
+<form action="{% url 'login' %}" method="post">
 
-        {{ login_form }}
-        {% csrf_token %}
-        <button type="submit">Авторизоваться</button>
+    {{ login_form }}
+    {% csrf_token %}
+    <button type="submit">Авторизоваться</button>
+    <h2>{{ attention }}</h2>
 
-    </form>
+
+
+
+</form>
 
 {% endblock container %}

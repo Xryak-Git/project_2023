@@ -18,7 +18,12 @@ def login_user(request):
             if user:
                 login(request, user)
                 return redirect('index')
-
+            else:
+                context = {
+                    'login_form': login_form,
+                    'attention': f'Пользователь с логином `{username}` и таким паролем не найден!'
+                }
+                print(1)
 
     return render(request, 'auth/login.html', context)
 
